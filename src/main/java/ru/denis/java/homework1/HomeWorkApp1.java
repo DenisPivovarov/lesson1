@@ -2,12 +2,12 @@ package ru.denis.java.homework1;
 
 import java.util.Arrays;
 
-public class MainApp {
+public class HomeWorkApp1 {
 
     public static void main(String[] args) {
 
         System.out.println(rangeSum(0, 5));
-        positiveNegative(0);
+        positiveNegative(-3);
         System.out.println(negative(5));
         helloName("Джейсон Стэтхэм");
         switchArr();
@@ -20,9 +20,9 @@ public class MainApp {
     }
 
     public static void printArr(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + " ");
+        for (int[] row : arr) {
+            for (int item : row) {
+                System.out.print(item + " ");
             }
             System.out.println();
         }
@@ -35,15 +35,14 @@ public class MainApp {
 
     //Task2
     public static void positiveNegative(int a) {
-        if (a >= 0) {
-            System.out.println("Число " + a + " положительное");
-        } else System.out.println("Число " + a + " отрицательное");
+        if (a >= 0) System.out.println("Число " + a + " положительное");
+        else System.out.println("Число " + a + " отрицательное");
 
     }
 
     //Task3
     public static boolean negative(int a) {
-        return (a < 0);
+        return a < 0;
     }
 
     //Task4
@@ -68,10 +67,9 @@ public class MainApp {
     //Task6
     public static void fillArray() {
         int[] arr = new int[8];
-        int c = 2;
+        int c = -1;
 
-        arr[0] = 2;
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = c += 3;
         }
         System.out.println(Arrays.toString(arr));
@@ -94,14 +92,12 @@ public class MainApp {
         int[][] arr = new int[3][3];
 
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                if (i == j) {
-                    arr[i][j] = 1;
-                }
-
+            {
+                arr[i][i] = 1;
             }
 
         }
+
         printArr(arr);
     }
 
@@ -111,12 +107,12 @@ public class MainApp {
         int max = arr[0];
         int min = arr[0];
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
+        for (int j : arr) {
+            if (j > max) {
+                max = j;
             }
-            if (arr[i] < min) {
-                min = arr[i];
+            if (j < min) {
+                min = j;
             }
         }
         System.out.println("Максимальный элемент массива " + max);

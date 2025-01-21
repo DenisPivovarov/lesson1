@@ -1,6 +1,6 @@
 package ru.denis.java.homework3;
 
-public class Robot {
+public class Robot implements Participant {
     private String name;
     private int maxRun;
     private int maxHeight;
@@ -11,21 +11,21 @@ public class Robot {
         this.maxHeight = maxHeight;
     }
 
-    public void run (int distance){
-        System.out.println("Робот пробежал " + distance);
+    public boolean run(int distance) {
+        if (distance > maxRun) {
+            System.out.println("Робот " + name + " не пробежал");
+            return false;
+        }
+        System.out.println("Робот " + name + " пробежал");
+        return true;
     }
 
-    public void jump (int height){
-        System.out.println("Робот прыгнул на " + height);
+    public boolean jump(int height) {
+        if (height > maxHeight) {
+            System.out.println("Робот " + name + " не перепрыгнул");
+            return false;
+        }
+        System.out.println("Робот " + name + " перепрыгнул");
+        return true;
     }
-
-
-    public int getMaxRun() {
-        return maxRun;
-    }
-
-    public int getMaxHeight() {
-        return maxHeight;
-    }
-
 }

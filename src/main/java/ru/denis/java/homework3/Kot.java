@@ -1,6 +1,6 @@
 package ru.denis.java.homework3;
 
-public class Kot {
+public class Kot implements Participant{
     private String name;
     private int maxRun;
     private int maxHeight;
@@ -11,20 +11,22 @@ public class Kot {
         this.maxHeight = maxHeight;
     }
 
-    public void run (int distance){
-        System.out.println("Кот пробежал " + distance);
+    public boolean run (int distance){
+        if (distance > maxRun) {
+            System.out.println("Кот " + name + " не пробежал");
+            return false;
+        }
+        System.out.println("Кот " + name + " пробежал");
+        return true;
     }
 
-    public void jump (int height){
-        System.out.println("Кот прыгнул на " + height);
+    public boolean jump (int height){
+        if (height > maxHeight) {
+            System.out.println("Кот " + name + " не перепрыгнул");
+            return false;
+        }
+        System.out.println("Кот " + name + " перепрыгнул");
+        return true;
     }
 
-
-    public int getMaxRun() {
-        return maxRun;
-    }
-
-    public int getMaxHeight() {
-        return maxHeight;
-    }
 }

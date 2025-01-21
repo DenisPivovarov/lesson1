@@ -1,6 +1,6 @@
 package ru.denis.java.homework3;
 
-public class Chelovek {
+public class Chelovek implements Participant{
     private String name;
     private int maxRun;
     private int maxHeight;
@@ -11,20 +11,21 @@ public class Chelovek {
         this.maxHeight = maxHeight;
     }
 
-    public void run (int distance){
-        System.out.println("Человек пробежал " + distance);
+    public boolean run (int distance){
+        if (distance > maxRun) {
+            System.out.println("Человек " + name + " не пробежал");
+            return false;
+        }
+        System.out.println("Человек " + name + " пробежал");
+        return true;
     }
 
-    public void jump (int height){
-        System.out.println("Человек прыгнул на " + height);
-    }
-
-
-    public int getMaxRun() {
-        return maxRun;
-    }
-
-    public int getMaxHeight() {
-        return maxHeight;
+    public boolean jump (int height){
+        if (height > maxHeight) {
+            System.out.println("Человек " + name + " не перепрыгнул");
+            return false;
+        }
+        System.out.println("Человек " + name + " перепрыгнул");
+        return true;
     }
 }
